@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/691/trunk/skeleton_markers/bin
+END
+skeleton_markers.py
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/470/trunk/skeleton_markers/bin/skeleton_markers.py
+END
+markers_from_openni_tracker.py
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/689/trunk/skeleton_markers/bin/markers_from_openni_tracker.py
+END
+markers_from_tf.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/691/trunk/skeleton_markers/bin/markers_from_tf.py
+END

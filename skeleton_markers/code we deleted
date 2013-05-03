@@ -1,0 +1,83 @@
+try{
+      listener_head2.lookupTransform("/openni_depth_frame", "/head_2",  
+                               ros::Time(0), transform_head2);
+    }
+    catch (tf::TransformException ex){
+      ROS_ERROR("%s",ex.what());
+    }
+	
+	try{
+      listener_RH2.lookupTransform("/openni_depth_frame", "/right_hand_2",  
+                               ros::Time(0), transform_RH2);
+    }
+    catch (tf::TransformException ex){
+      ROS_ERROR("%s",ex.what());
+    }
+	
+	try{
+      listener_LH2.lookupTransform("/openni_depth_frame", "/left_hand_2",  
+                               ros::Time(0), transform_LH2);
+    }
+    catch (tf::TransformException ex){
+      ROS_ERROR("%s",ex.what());
+    }
+
+	try{
+      listener_righthip2.lookupTransform("/openni_depth_frame", "/right_hip_2",  
+                               ros::Time(0), transform_righthip2);
+    }
+    catch (tf::TransformException ex){
+      ROS_ERROR("%s",ex.what());
+    }
+	
+	try{
+      listener_lefthip2.lookupTransform("/openni_depth_frame", "/left_hip_2",  
+                               ros::Time(0), transform_lefthip2);
+    }
+    catch (tf::TransformException ex){
+      ROS_ERROR("%s",ex.what());
+    }
+
+
+//left right are flipped because it's mirrored
+	std::cout<<"head z: " << transform_head2.getOrigin().z()<<std::endl;
+	std::cout<<"head x:" << transform_head2.getOrigin().x()<<std::endl;
+	std::cout<<"LH z: " << transform_RH2.getOrigin().z()<<std::endl;
+	std::cout<<"LH x: " << transform_RH2.getOrigin().x()<<std::endl;
+	std::cout<<"RH z: " << transform_LH2.getOrigin().z()<<std::endl;
+	std::cout<<"RH x: " << transform_LH2.getOrigin().x()<<std::endl;
+	std::cout<<"right hip z: " << transform_righthip2.getOrigin().z()<<std::endl;
+	std::cout<<"right hip x: " << transform_righthip2.getOrigin().x()<<std::endl;
+	std::cout<<"left hip z: " << transform_lefthip2.getOrigin().z()<<std::endl;
+	std::cout<<"left hip x: " << transform_lefthip2.getOrigin().x()<<std::endl;
+	std::cout<<"\n"<<std::endl;
+	
+	
+	static double rightHandZ2 = transform_RH2.getOrigin().z();
+ 	static double leftHandZ2 = transform_LH2.getOrigin().z();
+	static double rightHandX2 = transform_RH2.getOrigin().x();
+	static double leftHandX2 = transform_LH2.getOrigin().x();
+ 	static double rightHipX2 = transform_righthip2.getOrigin().x();
+ 	static double leftHipX2 = transform_lefthip2.getOrigin().x();
+	static double rightHipZ2 = transform_righthip2.getOrigin().z();
+
+
+     if((transform_LH2.getOrigin().z()>transform_head2.getOrigin().z()) == 1){
+	std::cout<<"right hand high five!"<<std::endl;
+	}
+
+     if((transform_RH2.getOrigin().z()>transform_head2.getOrigin().z()) == 1){
+	std::cout<<"left hand high five!"<<std::endl;
+	}  
+
+if((leftHandZ2 < rightHipZ2 + .10 == 1) && (leftHandZ2 > rightHipZ2 - .10 == 1)){
+	if((leftHandX2 > -.10 == 1) && (leftHandX2 < .10 == 1)){
+		 std::cout<<"right hand stop!"<<std::endl;
+	}
+}
+
+//if((rightHandZ2 < rightHipZ2 + .10 == 1)  && (rightHandZ2 > rightHipZ2 - .10 == 1)){
+//	if((rightHandX2 > leftHipX2 == 1) && (rightHandX2 < rightHipX2 == 1)){
+//		 std::cout<<"left hand stop!"<<std::endl;
+//	}
+//} 
