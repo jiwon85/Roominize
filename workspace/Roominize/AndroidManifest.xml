@@ -22,6 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.HackTx.roominize.FinanceDatabase"
+            android:label="@string/title_activity_finance_database" >
+        </activity>
+        <activity
+            android:name="com.HackTx.roominize.AccountsDatabase"
+            android:label="@string/title_activity_accounts_database" >
+        </activity>
     </application>
 
 </manifest>
