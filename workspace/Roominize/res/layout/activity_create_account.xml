@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <Button
+        android:id="@+id/bSubmit"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="36dp"
+        android:text="Submit" />
+    <EditText
+        android:id="@+id/eName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Name"
+        android:gravity="center"
+        android:inputType="textPersonName" >
+        <requestFocus />
+    </EditText>
+    <EditText
+        android:id="@+id/eUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/eName"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Username"
+        android:gravity="center"
+        android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/ePassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/eUsername"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Password"
+        android:gravity="center"
+        android:inputType="textPassword" />
+    <EditText
+        android:id="@+id/ePasswordConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ePassword"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Confirm Passord"
+        android:gravity="center"
+        android:inputType="textPassword" />
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/eKey"
+        android:layout_alignLeft="@+id/eKey"
+        android:layout_alignRight="@+id/eKey"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="Put your roommate key here, if you don't have one, then leave this field blank and we'll create one for you."
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+    <EditText
+        android:id="@+id/eKey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bSubmit"
+        android:layout_alignLeft="@+id/eUsername"
+        android:layout_marginBottom="60dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Roommate Key"
+        android:inputType="textPersonName" />
+</RelativeLayout>

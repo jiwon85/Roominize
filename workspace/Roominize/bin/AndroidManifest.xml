@@ -30,6 +30,14 @@
             android:name="com.HackTx.roominize.AccountsDatabase"
             android:label="@string/title_activity_accounts_database" >
         </activity>
+        <activity
+            android:name="com.HackTx.roominize.CalendarDatabase"
+            android:label="@string/title_activity_calendar_database" >
+        </activity>
+        <activity
+            android:name="com.HackTx.roominize.CreateAccount"
+            android:label="@string/title_activity_create_account" >
+        </activity>
     </application>
 
 </manifest>
