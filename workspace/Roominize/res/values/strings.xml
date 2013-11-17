@@ -8,5 +8,9 @@
     <string name="title_activity_accounts_database">AccountsDatabase</string>
     <string name="title_activity_calendar_database">CalendarDatabase</string>
     <string name="title_activity_create_account">CreateAccount</string>
+    <string name="title_activity_homepage">Homepage</string>
+    <string name="title_activity_finances">Finances</string>
+    <string name="title_activity_report">Report</string>
+    <string name="title_activity_calendar">Calendar</string>
 
 </resources>

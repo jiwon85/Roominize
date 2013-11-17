@@ -1,11 +1,11 @@
 package com.HackTx.roominize;
 
 import com.dropbox.sync.android.DbxAccountManager;
+import com.dropbox.sync.android.DbxException;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -17,8 +17,8 @@ import android.widget.EditText;
 
 public class MainActivity extends Activity implements OnClickListener {
 
-	
-	public static AccountsDatabase mainAccountData = new AccountsDatabase();
+
+	public AccountsDatabase mainAccountData = new AccountsDatabase(MainActivity.this);
 	public static String userNameString;
 	EditText userName;
 	EditText password;
@@ -46,7 +46,12 @@ public class MainActivity extends Activity implements OnClickListener {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 
-				key = login(userName.getText().toString(), password.getText().toString());
+				try {
+					key = mainAccountData.login(userName.getText().toString(), password.getText().toString());
+				} catch (DbxException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				// If credentials are incorrect
 				if(key == null) {
 					showError();
@@ -54,10 +59,12 @@ public class MainActivity extends Activity implements OnClickListener {
 				
 				// Go to home screen 
 				else {
+
 					Class ourClassC;
 					try {
-						ourClassC = Class.forName("com.example.roomateapp.homePage");
-						Intent ourIntentC = new Intent(MainActivity.this, ourClassC); 
+						ourClassC = Class.forName("com.HackTx.roominize.Homepage");
+						Intent ourIntentC = new Intent(MainActivity.this, ourClassC);
+                        //mainAccountData.endActivity();
 						startActivity(ourIntentC);
 					} catch (ClassNotFoundException e) {
 						// TODO Auto-generated catch block
@@ -76,8 +83,10 @@ public class MainActivity extends Activity implements OnClickListener {
 				// Go to register page 
 				Class ourClassC;
 				try {
-					ourClassC = Class.forName("com.example.roomateapp.CreateAccount");
-					Intent ourIntentC = new Intent(MainActivity.this, ourClassC); 
+                    //mainAccountData.endActivity();
+					ourClassC = Class.forName("com.HackTx.roominize.CreateAccount");
+					Intent ourIntentC = new Intent(MainActivity.this, ourClassC);
+                    ourIntentC.putExtra("AccountsDatabase", mainAccountData);
 					startActivity(ourIntentC);
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
@@ -97,17 +106,9 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 
 	private void showError() {
-		userName.setError("Password and username didn't match");
+		userName.setError("Password and username didn't match lol Dumbass get it right");
 	}
 
-	private String login(String u, String p) {
-		if(u.equals("irv05") && p.equals("pimp") ) {
-			return "hi";
-		}
-		else {
-			return null;
-		}
-	}
 
 	@Override
 	public void onClick(View v) {
