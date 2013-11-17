@@ -31,7 +31,7 @@ public class CalendarDatabase extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_calendar_database);
 		super.onCreate(savedInstanceState);
-	    mAccountManager = DbxAccountManager.getInstance(getApplicationContext(), "j3kj9rrkkr0b6oc", "5kwtzx6t6vt63ov");
+	    mAccountManager = DbxAccountManager.getInstance(getApplicationContext(), APP_KEY, SECRET_KEY);
 	    
 	    
 	    
